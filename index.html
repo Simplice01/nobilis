@@ -404,7 +404,7 @@
 
 
     <!-- Testimonial Start -->
-   <div class="container-xxl py-5">
+<div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mb-5">
             <h6 class="section-title bg-white text-center text-primary px-3">TÉMOIGNAGES</h6>
@@ -472,6 +472,7 @@
         </div>
     </div>
 </div>
+
     <!-- Testimonial End -->
         
 
@@ -481,7 +482,7 @@
         <div class="row g-5">
 
             <!-- Liens rapides -->
-           <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <h4 class="text-white mb-3">Liens rapides</h4>
                 <a class="btn btn-link" href="#">À propos</a>
                 <a class="btn btn-link" href="services.html">Services</a>
@@ -534,6 +535,7 @@
                     &copy; <a class="border-bottom" href="#">Service de rédaction académique</a>,
                     Tous droits réservés.
                     <br>
+
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
@@ -554,8 +556,34 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    <!-- JavaScript Libraries -->
+    if (typeof window.jQuery === "undefined") return;
+    if (typeof jQuery.fn.owlCarousel === "undefined") return;
+
+    $('.testimonial-carousel').owlCarousel({
+        loop: true,
+        margin: 24,
+        nav: true,
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        smartSpeed: 800,
+        navText: [
+            '<span class="btn btn-sm btn-primary">&lsaquo;</span>',
+            '<span class="btn btn-sm btn-primary">&rsaquo;</span>'
+        ],
+        responsive: {
+            0: { items: 1 },
+            768: { items: 2 },
+            992: { items: 3 }
+        }
+    });
+
+});
+</script>
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -570,7 +598,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
+     <script>
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".counter");
     const speed = 120; // plus petit = plus rapide
@@ -603,7 +631,6 @@ document.addEventListener("DOMContentLoaded", () => {
     counters.forEach(counter => observer.observe(counter));
 });
 </script>
-
 </body>
 
 </html>
