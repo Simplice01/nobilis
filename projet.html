@@ -157,12 +157,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
                 </div>
                 <div class="reader-toolbar">
-                    <button type="button" class="reader-btn" id="prevPage" aria-label="Page précédente">
-                        <i class="fa fa-chevron-left"></i>
+                    <button type="button" class="reader-btn" id="scrollTopPage" aria-label="Revenir au début">
+                        <i class="fa fa-arrow-up"></i>
                     </button>
-                    <span id="pageIndicator">Page 1 / 1</span>
-                    <button type="button" class="reader-btn" id="nextPage" aria-label="Page suivante">
-                        <i class="fa fa-chevron-right"></i>
+                    <span id="pageIndicator">Défilement continu</span>
+                    <button type="button" class="reader-btn" id="scrollBottomPage" aria-label="Descendre dans le document">
+                        <i class="fa fa-arrow-down"></i>
                     </button>
                     <span class="reader-lock"><i class="fa fa-lock me-1"></i>Téléchargement désactivé</span>
                 </div>
@@ -172,7 +172,7 @@
                         sont désactivés sur cette page.
                     </div>
                     <div class="pdf-stage" id="pdfStage">
-                        <canvas id="pdfCanvas"></canvas>
+                        <div class="pdf-pages" id="pdfPages"></div>
                         <div class="pdf-loading" id="pdfLoading">Chargement du document...</div>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="js/vendor/pdf.min.js"></script>
     <script src="js/main.js"></script>
 
     <script>
@@ -266,9 +266,11 @@
         let pdfDocument = null;
         let currentPage = 1;
         let activeTitle = "";
+        let pageObserver = null;
+        let renderQueue = Promise.resolve();
 
         if (window.pdfjsLib) {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+            pdfjsLib.GlobalWorkerOptions.workerSrc = "js/vendor/pdf.worker.min.js";
         }
 
         function renderDocumentCards(filter = "all") {
@@ -302,7 +304,7 @@
             document.getElementById("pdfModalTitle").textContent = title;
             document.getElementById("pdfLoading").style.display = "flex";
             document.getElementById("pdfLoading").textContent = "Chargement du document...";
-            document.getElementById("pdfCanvas").style.display = "none";
+            resetPdfPages();
 
             const modal = new bootstrap.Modal(document.getElementById("pdfModal"));
             modal.show();
@@ -315,7 +317,7 @@
                 pdfDocument = await pdfjsLib.getDocument({
                     url: encodeURI(pdfPath)
                 }).promise;
-                await renderPdfPage();
+                await renderPdfDocument();
             } catch (error) {
                 showFallbackViewer(pdfPath);
             }
@@ -326,17 +328,26 @@
             if (existingFrame) existingFrame.remove();
         }
 
+        function resetPdfPages() {
+            if (pageObserver) {
+                pageObserver.disconnect();
+                pageObserver = null;
+            }
+            renderQueue = Promise.resolve();
+            document.getElementById("pdfPages").innerHTML = "";
+        }
+
         function showFallbackViewer(pdfPath) {
             const stage = document.getElementById("pdfStage");
             const loading = document.getElementById("pdfLoading");
-            const canvas = document.getElementById("pdfCanvas");
+            const pages = document.getElementById("pdfPages");
             const frame = document.createElement("iframe");
 
-            canvas.style.display = "none";
+            pages.innerHTML = "";
             loading.style.display = "none";
             document.getElementById("pageIndicator").textContent = "Aperçu local";
-            document.getElementById("prevPage").disabled = true;
-            document.getElementById("nextPage").disabled = true;
+            document.getElementById("scrollTopPage").disabled = true;
+            document.getElementById("scrollBottomPage").disabled = true;
 
             frame.id = "pdfFallbackFrame";
             frame.className = "pdf-fallback-frame";
@@ -345,16 +356,54 @@
             stage.appendChild(frame);
         }
 
-        async function renderPdfPage() {
+        async function renderPdfDocument() {
             if (!pdfDocument) return;
 
-            const page = await pdfDocument.getPage(currentPage);
             const stage = document.getElementById("pdfStage");
-            const canvas = document.getElementById("pdfCanvas");
+            const pages = document.getElementById("pdfPages");
+            const firstPage = await pdfDocument.getPage(1);
+            const baseViewport = firstPage.getViewport({ scale: 1 });
+            const availableWidth = Math.max(280, stage.clientWidth - 40);
+            const scale = Math.min(1.22, availableWidth / baseViewport.width);
+            const estimatedHeight = Math.round(baseViewport.height * scale);
+
+            pages.innerHTML = "";
+            document.getElementById("pageIndicator").textContent = `Défilement continu • ${pdfDocument.numPages} pages`;
+            document.getElementById("scrollTopPage").disabled = false;
+            document.getElementById("scrollBottomPage").disabled = false;
+
+            for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber += 1) {
+                const shell = document.createElement("div");
+                shell.className = "pdf-page-shell";
+                shell.dataset.pageNumber = pageNumber;
+                shell.style.minHeight = `${estimatedHeight}px`;
+                shell.innerHTML = `<div class="pdf-page-label">Page ${pageNumber}</div><canvas></canvas>`;
+                pages.appendChild(shell);
+            }
+
+            pageObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const shell = entry.target;
+                        pageObserver.unobserve(shell);
+                        renderQueue = renderQueue.then(() => renderPdfPageShell(shell, scale));
+                    }
+                });
+            }, { root: stage, rootMargin: "360px 0px" });
+
+            pages.querySelectorAll(".pdf-page-shell").forEach((shell) => pageObserver.observe(shell));
+            document.getElementById("pdfLoading").style.display = "none";
+            await renderPdfPageShell(pages.querySelector(".pdf-page-shell"), scale);
+        }
+
+        async function renderPdfPageShell(shell, scale) {
+            if (!pdfDocument || !shell || shell.dataset.rendered === "true") return;
+
+            shell.dataset.rendered = "true";
+            const pageNumber = Number(shell.dataset.pageNumber);
+            const page = await pdfDocument.getPage(pageNumber);
+            const canvas = shell.querySelector("canvas");
             const context = canvas.getContext("2d");
-            const baseViewport = page.getViewport({ scale: 1 });
-            const availableWidth = Math.max(280, stage.clientWidth - 32);
-            const scale = Math.min(1.45, availableWidth / baseViewport.width);
             const viewport = page.getViewport({ scale });
 
             canvas.width = viewport.width;
@@ -374,12 +423,7 @@
                 }
             }
             context.restore();
-
-            document.getElementById("pageIndicator").textContent = `Page ${currentPage} / ${pdfDocument.numPages}`;
-            document.getElementById("prevPage").disabled = currentPage <= 1;
-            document.getElementById("nextPage").disabled = currentPage >= pdfDocument.numPages;
-            document.getElementById("pdfLoading").style.display = "none";
-            canvas.style.display = "block";
+            shell.style.minHeight = "";
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -393,26 +437,20 @@
                 });
             });
 
-            document.getElementById("prevPage").addEventListener("click", async function () {
-                if (currentPage > 1) {
-                    currentPage -= 1;
-                    await renderPdfPage();
-                }
+            document.getElementById("scrollTopPage").addEventListener("click", function () {
+                document.getElementById("pdfStage").scrollTo({ top: 0, behavior: "smooth" });
             });
 
-            document.getElementById("nextPage").addEventListener("click", async function () {
-                if (pdfDocument && currentPage < pdfDocument.numPages) {
-                    currentPage += 1;
-                    await renderPdfPage();
-                }
+            document.getElementById("scrollBottomPage").addEventListener("click", function () {
+                const stage = document.getElementById("pdfStage");
+                stage.scrollBy({ top: stage.clientHeight * 0.85, behavior: "smooth" });
             });
 
             document.getElementById("pdfModal").addEventListener("hidden.bs.modal", function () {
                 pdfDocument = null;
                 activeTitle = "";
                 clearFallbackViewer();
-                const canvas = document.getElementById("pdfCanvas");
-                canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+                resetPdfPages();
             });
 
             document.addEventListener("contextmenu", function (event) {
@@ -430,7 +468,7 @@
 
             window.addEventListener("resize", function () {
                 if (pdfDocument && activeTitle) {
-                    renderPdfPage();
+                    renderPdfDocument();
                 }
             });
         });

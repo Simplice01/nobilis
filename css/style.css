@@ -826,20 +826,50 @@
     user-select: none;
 }
 
-#pdfCanvas {
-    display: none;
-    max-width: 100%;
-    margin: 0 auto;
-    background: #ffffff;
-    box-shadow: 0 16px 42px rgba(24, 29, 56, .24);
-}
-
 .pdf-fallback-frame {
     width: min(100%, 980px);
     min-height: 68vh;
     background: #ffffff;
     border: 0;
     box-shadow: 0 16px 42px rgba(24, 29, 56, .24);
+}
+
+.pdf-pages {
+    width: 100%;
+    display: grid;
+    gap: 24px;
+    justify-items: center;
+}
+
+.pdf-page-shell {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    min-width: min(100%, 320px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 30px;
+}
+
+.pdf-page-shell canvas {
+    max-width: 100%;
+    background: #ffffff;
+    box-shadow: 0 16px 42px rgba(24, 29, 56, .24);
+}
+
+.pdf-page-label {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 10px;
+    color: #617080;
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid #d9e3e8;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
 }
 
 .pdf-loading {
