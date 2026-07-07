@@ -974,6 +974,101 @@
     }
 }
 
+.product-hero {
+    background:
+        linear-gradient(115deg, rgba(24, 29, 56, .96), rgba(5, 67, 81, .88)),
+        url(../img/carousel-1.jpg) center center / cover no-repeat;
+}
+
+.product-visual {
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 10px;
+    background: rgba(255, 255, 255, .96);
+    border: 1px solid rgba(255, 255, 255, .34);
+    box-shadow: 0 24px 58px rgba(0, 0, 0, .24);
+}
+
+.product-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.product-price-card {
+    height: 100%;
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #e2eaf0;
+    box-shadow: 0 18px 48px rgba(24, 29, 56, .1);
+}
+
+.product-price {
+    color: var(--dark);
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.product-old-price {
+    color: #8a97a6;
+    font-weight: 700;
+    text-decoration: line-through;
+}
+
+.product-check {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: #647184;
+    line-height: 1.7;
+}
+
+.product-check i {
+    margin-top: 5px;
+    color: var(--primary);
+}
+
+.product-mini-card {
+    height: 100%;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2eaf0;
+}
+
+.product-mini-card h5 {
+    margin-bottom: 12px;
+}
+
+.product-mini-card p {
+    color: #647184;
+    line-height: 1.72;
+}
+
+.soft-product-card {
+    padding: 30px;
+    background: #ffffff;
+    border: 1px solid #dfe8ee;
+    box-shadow: 0 14px 38px rgba(24, 29, 56, .07);
+}
+
+.soft-product-card p {
+    color: #647184;
+    line-height: 1.75;
+}
+
+.soft-product-label {
+    display: inline-flex;
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
 
 /*** Premium Site System ***/
 .premium-page {
@@ -989,6 +1084,10 @@
     color: var(--dark);
     font-family: 'Nunito', sans-serif;
     letter-spacing: 0;
+}
+
+.premium-page {
+    overflow-x: hidden;
 }
 
 .premium-nav {
@@ -1219,6 +1318,10 @@
 @media (max-width: 575.98px) {
     .premium-hero {
         padding: 56px 0 44px;
+    }
+
+    .premium-page .g-5 {
+        --bs-gutter-x: 1.5rem;
     }
 
     .premium-hero:not(.compact) .premium-hero-card {
