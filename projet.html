@@ -165,6 +165,15 @@
                     <button type="button" class="reader-btn" id="scrollBottomPage" aria-label="Descendre dans le document">
                         <i class="fa fa-arrow-down"></i>
                     </button>
+                    <div class="reader-zoom" aria-label="Ajuster le confort de lecture">
+                        <button type="button" class="reader-btn" id="zoomOutPdf" aria-label="Réduire le zoom">
+                            <i class="fa fa-search-minus"></i>
+                        </button>
+                        <span id="zoomIndicator">100%</span>
+                        <button type="button" class="reader-btn" id="zoomInPdf" aria-label="Agrandir le zoom">
+                            <i class="fa fa-search-plus"></i>
+                        </button>
+                    </div>
                     <span class="reader-lock"><i class="fa fa-lock me-1"></i>Téléchargement désactivé</span>
                 </div>
                 <div class="modal-body">
@@ -248,20 +257,20 @@
 
     <script>
         const projectDocuments = [
-            { title: "Médiation dans les litiges commerciaux en droit OHADA", level: "droit", levelLabel: "Droit", file: "pdf/A-14 version finale.pdf", domain: "Droit des affaires" },
-            { title: "Gouvernance et sécurité internationale en Afrique centrale", level: "memoire", levelLabel: "Mémoire", file: "pdf/Aaron@ version finale.pdf", domain: "Relations internationales" },
-            { title: "Les limites à la liberté contractuelle", level: "droit", levelLabel: "Droit", file: "pdf/Adama Diaby Version finale.pdf", domain: "Droit civil et contrats" },
-            { title: "Qualité des pastèques produites et commercialisées à Dalaba", level: "autre", levelLabel: "Autre", file: "pdf/Alseny Diallo Version finale.pdf", domain: "Sciences et contrôle qualité" },
-            { title: "Les ONG et leur rôle dans la diplomatie", level: "these", levelLabel: "Thèse", file: "pdf/Amicizia Ong version finale.pdf", domain: "Diplomatie et relations internationales" },
-            { title: "Polyvalence en traduction dans les administrations", level: "memoire", levelLabel: "Mémoire", file: "pdf/Ben version finale.pdf", domain: "Traduction et administration" },
-            { title: "Économie numérique, innovation et croissance économique", level: "memoire", levelLabel: "Mémoire", file: "pdf/DIABY ANALYSTE ECONOMIQUE version finale.pdf", domain: "Analyse économique" },
-            { title: "Thèse en orientation et éducation extrascolaire", level: "these", levelLabel: "Thèse", file: "pdf/these_Denise-version finale.pdf", domain: "Sciences de l'éducation" },
-            { title: "Document académique finalisé", level: "memoire", levelLabel: "Mémoire", file: "pdf/King version finale.pdf", domain: "Recherche académique" },
-            { title: "Risques liés au chargement et déchargement de la bauxite", level: "autre", levelLabel: "Autre", file: "pdf/Leno version finale.pdf", domain: "Gestion des risques" },
-            { title: "L'apport partiel d'actif en droit des affaires", level: "droit", levelLabel: "Droit", file: "pdf/Richard version finale.pdf", domain: "Droit OHADA" },
-            { title: "Évaluation des politiques publiques au Tchad", level: "memoire", levelLabel: "Mémoire", file: "pdf/Ronel-Gladys(Mémoire) version finale.pdf", domain: "Politiques publiques" },
-            { title: "Infractions liées à la conjugaison chez les apprenants", level: "memoire", levelLabel: "Mémoire", file: "pdf/Saïd El Khoudri(Doc 2) version finale.pdf", domain: "Didactique et langue française" },
-            { title: "Santé et sécurité dans la réhabilitation industrielle", level: "autre", levelLabel: "Autre", file: "pdf/Zoumanigui Maurice Massa version finale.pdf", domain: "Santé, sécurité et industrie" }
+            { title: "Médiation dans les litiges commerciaux en droit OHADA", level: "droit", levelLabel: "Droit", file: "pdf/A-14 version finale.pdf", domain: "Droit des affaires", review: "Retour client : structure plus claire et argumentation mieux défendable." },
+            { title: "Gouvernance et sécurité internationale en Afrique centrale", level: "memoire", levelLabel: "Mémoire", file: "pdf/Aaron@ version finale.pdf", domain: "Relations internationales", review: "Retour client : plan réorganisé et enchaînement des chapitres plus fluide." },
+            { title: "Les limites à la liberté contractuelle", level: "droit", levelLabel: "Droit", file: "pdf/Adama Diaby Version finale.pdf", domain: "Droit civil et contrats", review: "Retour client : problématique clarifiée et références mieux exploitées." },
+            { title: "Qualité des pastèques produites et commercialisées à Dalaba", level: "autre", levelLabel: "Autre", file: "pdf/Alseny Diallo Version finale.pdf", domain: "Sciences et contrôle qualité", review: "Retour client : présentation des résultats rendue plus lisible." },
+            { title: "Les ONG et leur rôle dans la diplomatie", level: "these", levelLabel: "Thèse", file: "pdf/Amicizia Ong version finale.pdf", domain: "Diplomatie et relations internationales", review: "Retour client : cadre théorique mieux structuré et lecture plus professionnelle." },
+            { title: "Polyvalence en traduction dans les administrations", level: "memoire", levelLabel: "Mémoire", file: "pdf/Ben version finale.pdf", domain: "Traduction et administration", review: "Retour client : document final plus cohérent avant dépôt." },
+            { title: "Économie numérique, innovation et croissance économique", level: "memoire", levelLabel: "Mémoire", file: "pdf/DIABY ANALYSTE ECONOMIQUE version finale.pdf", domain: "Analyse économique", review: "Retour client : analyse mieux hiérarchisée et tableaux mieux présentés." },
+            { title: "Thèse en orientation et éducation extrascolaire", level: "these", levelLabel: "Thèse", file: "pdf/these_Denise-version finale.pdf", domain: "Sciences de l'éducation", review: "Retour client : progression scientifique plus nette entre les parties." },
+            { title: "Document académique finalisé", level: "memoire", levelLabel: "Mémoire", file: "pdf/King version finale.pdf", domain: "Recherche académique", review: "Retour client : mise en forme et cohérence générale renforcées." },
+            { title: "Risques liés au chargement et déchargement de la bauxite", level: "autre", levelLabel: "Autre", file: "pdf/Leno version finale.pdf", domain: "Gestion des risques", review: "Retour client : résultats mieux expliqués et recommandations plus nettes." },
+            { title: "L'apport partiel d'actif en droit des affaires", level: "droit", levelLabel: "Droit", file: "pdf/Richard version finale.pdf", domain: "Droit OHADA", review: "Retour client : raisonnement juridique rendu plus lisible." },
+            { title: "Évaluation des politiques publiques au Tchad", level: "memoire", levelLabel: "Mémoire", file: "pdf/Ronel-Gladys(Mémoire) version finale.pdf", domain: "Politiques publiques", review: "Retour client : méthodologie clarifiée et analyse mieux reliée aux objectifs." },
+            { title: "Infractions liées à la conjugaison chez les apprenants", level: "memoire", levelLabel: "Mémoire", file: "pdf/Saïd El Khoudri(Doc 2) version finale.pdf", domain: "Didactique et langue française", review: "Retour client : rédaction allégée et présentation plus académique." },
+            { title: "Santé et sécurité dans la réhabilitation industrielle", level: "autre", levelLabel: "Autre", file: "pdf/Zoumanigui Maurice Massa version finale.pdf", domain: "Santé, sécurité et industrie", review: "Retour client : document plus ordonné et lecture finale facilitée." }
         ];
 
         let pdfDocument = null;
@@ -269,6 +278,7 @@
         let activeTitle = "";
         let pageObserver = null;
         let renderQueue = Promise.resolve();
+        let pdfZoom = 1;
 
         if (window.pdfjsLib) {
             pdfjsLib.GlobalWorkerOptions.workerSrc = "js/vendor/pdf.worker.min.js";
@@ -286,6 +296,10 @@
                         </div>
                         <h3>${item.title}</h3>
                         <p>${item.domain}</p>
+                        <div class="doc-review">
+                            <i class="fa fa-quote-left"></i>
+                            <span>${item.review}</span>
+                        </div>
                         <div class="doc-meta">
                             <span><i class="fa fa-file-pdf"></i>PDF</span>
                             <span><i class="fa fa-eye"></i>Lecture seule</span>
@@ -301,6 +315,8 @@
         async function openSecurePdf(pdfPath, title) {
             activeTitle = title;
             currentPage = 1;
+            pdfZoom = 1;
+            updateZoomIndicator();
             clearFallbackViewer();
             document.getElementById("pdfModalTitle").textContent = title;
             document.getElementById("pdfLoading").style.display = "flex";
@@ -349,6 +365,8 @@
             document.getElementById("pageIndicator").textContent = "Aperçu local";
             document.getElementById("scrollTopPage").disabled = true;
             document.getElementById("scrollBottomPage").disabled = true;
+            document.getElementById("zoomOutPdf").disabled = true;
+            document.getElementById("zoomInPdf").disabled = true;
 
             frame.id = "pdfFallbackFrame";
             frame.className = "pdf-fallback-frame";
@@ -365,13 +383,16 @@
             const firstPage = await pdfDocument.getPage(1);
             const baseViewport = firstPage.getViewport({ scale: 1 });
             const availableWidth = Math.max(280, stage.clientWidth - 40);
-            const scale = Math.min(1.22, availableWidth / baseViewport.width);
+            const fitScale = availableWidth / baseViewport.width;
+            const scale = Math.min(2.25, fitScale * pdfZoom);
             const estimatedHeight = Math.round(baseViewport.height * scale);
 
             pages.innerHTML = "";
             document.getElementById("pageIndicator").textContent = `Défilement continu • ${pdfDocument.numPages} pages`;
             document.getElementById("scrollTopPage").disabled = false;
             document.getElementById("scrollBottomPage").disabled = false;
+            document.getElementById("zoomOutPdf").disabled = pdfZoom <= 0.9;
+            document.getElementById("zoomInPdf").disabled = pdfZoom >= 1.45;
 
             for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber += 1) {
                 const shell = document.createElement("div");
@@ -406,11 +427,13 @@
             const canvas = shell.querySelector("canvas");
             const context = canvas.getContext("2d");
             const viewport = page.getViewport({ scale });
+            const outputScale = Math.min(2.4, Math.max(1.5, window.devicePixelRatio || 1));
 
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
+            canvas.width = Math.floor(viewport.width * outputScale);
+            canvas.height = Math.floor(viewport.height * outputScale);
             canvas.style.width = `${viewport.width}px`;
             canvas.style.height = `${viewport.height}px`;
+            context.setTransform(outputScale, 0, 0, outputScale, 0, 0);
 
             await page.render({ canvasContext: context, viewport }).promise;
             context.save();
@@ -418,13 +441,24 @@
             context.fillStyle = "#0f172a";
             context.font = "700 28px Nunito, sans-serif";
             context.rotate(-0.42);
-            for (let y = 160; y < canvas.height + 220; y += 180) {
-                for (let x = -canvas.width; x < canvas.width + 240; x += 460) {
+            for (let y = 160; y < viewport.height + 220; y += 180) {
+                for (let x = -viewport.width; x < viewport.width + 240; x += 460) {
                     context.fillText("Nobilis - lecture autorisée", x, y);
                 }
             }
             context.restore();
             shell.style.minHeight = "";
+        }
+
+        function updateZoomIndicator() {
+            document.getElementById("zoomIndicator").textContent = `${Math.round(pdfZoom * 100)}%`;
+        }
+
+        function changePdfZoom(delta) {
+            if (!pdfDocument) return;
+            pdfZoom = Math.min(1.45, Math.max(0.9, Number((pdfZoom + delta).toFixed(2))));
+            updateZoomIndicator();
+            renderPdfDocument();
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -445,6 +479,14 @@
             document.getElementById("scrollBottomPage").addEventListener("click", function () {
                 const stage = document.getElementById("pdfStage");
                 stage.scrollBy({ top: stage.clientHeight * 0.85, behavior: "smooth" });
+            });
+
+            document.getElementById("zoomOutPdf").addEventListener("click", function () {
+                changePdfZoom(-0.15);
+            });
+
+            document.getElementById("zoomInPdf").addEventListener("click", function () {
+                changePdfZoom(0.15);
             });
 
             document.getElementById("pdfModal").addEventListener("hidden.bs.modal", function () {
