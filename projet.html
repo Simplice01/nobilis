@@ -1,521 +1,289 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
-    <title>Nobilis - Travaux soutenus</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="mémoires soutenus, accompagnement académique, thèse, master, licence" name="keywords">
-    <meta content="Découvrez une sélection de travaux académiques soutenus avec accord préalable des clients Nobilis." name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Preuves et travaux accompagnés | NOBILIS</title>
+    <meta name="description" content="Livraisons réelles, retours clients et sélection de travaux académiques accompagnés par NOBILIS.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#181d38">
 
-    <link href="img/nobilt.png" rel="icon">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NOBILIS">
+    <meta property="og:title" content="Des travaux réalisés. Des résultats visibles. | NOBILIS">
+    <meta property="og:description" content="Découvrez des livraisons, des retours clients et différents travaux accompagnés par NOBILIS.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon-48.png">
+    <link rel="preload" as="image" type="image/webp" href="img/preuves/livraison-01.webp">
+    <link rel="stylesheet" href="css/projet.css">
+    <link rel="stylesheet" href="css/nobilis.css">
 </head>
 
-<body class="projects-page">
-    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Chargement...</span>
-        </div>
-    </div>
+<body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-graduation-cap me-3"></i>Nobilis</h2>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0 premium-nav" aria-label="Navigation principale">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5" aria-label="Nobilis — Accueil">
+            <h2 class="m-0 text-primary">
+                <svg class="nav-brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1.8 8.1 12 13.2l8-4v5.1h2V8.1L12 3Zm-6.2 8.7v4.1c0 1.8 3 3.7 6.2 3.7s6.2-1.9 6.2-3.7v-4.1L12 14.8l-6.2-3.1Z"/></svg>
+                Nobilis
+            </h2>
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Afficher le menu">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler me-4" type="button" data-site-nav-toggle aria-controls="navbarCollapse" aria-expanded="false" aria-label="Afficher le menu">
+            <span class="navbar-toggler-icon" aria-hidden="true"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.html" class="nav-item nav-link">Accueil</a>
                 <a href="services.html" class="nav-item nav-link">Services</a>
-                <a href="projet.html" class="nav-item nav-link active">Travaux soutenus</a>
+                <a href="projet.html" class="nav-item nav-link active" aria-current="page">Réalisations</a>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <header class="project-hero">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-7">
-                    <span class="project-eyebrow">Extrait de références consultables</span>
-                    <h1>Des travaux finalisés qui montrent notre niveau d'exigence.</h1>
-                    <p class="project-hero-text">
-                        Cette sélection donne un aperçu concret de l'accompagnement Nobilis, construit sur 6 ans
-                        d'expérience, plus de 400 travaux accompagnés et plus de 500 étudiants suivis dans la diaspora
-                        et plusieurs pays.
-                    </p>
-                    <div class="project-hero-actions">
-                        <a href="#documents" class="btn btn-primary py-3 px-4">
-                            <i class="fa fa-book-open me-2"></i>Consulter les travaux
-                        </a>
-                        <a href="contact.html" class="btn btn-outline-light py-3 px-4">
-                            <i class="fa fa-paper-plane me-2"></i>Discuter de mon projet
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="project-proof-panel">
-                        <div class="proof-row">
-                            <span>Portefeuille présenté</span>
-                            <strong>Extrait choisi</strong>
-                        </div>
-                        <div class="proof-row">
-                            <span>Domaines couverts</span>
-                            <strong>Variés</strong>
-                        </div>
-                        <div class="proof-row">
-                            <span>Accès public</span>
-                            <strong>Lecture seule</strong>
-                        </div>
-                        <p>
-                            Cette page présente seulement un extrait de références consultables, sélectionnées
-                            pour illustrer notre méthode parmi les mémoires, thèses, masters, DEA, BTS et licences
-                            déjà accompagnés.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <main id="contenu">
+        <header class="hero page-width">
+            <p class="hero-kicker">NOBILIS</p>
+            <h1>Des travaux réalisés.<br>Des étudiants accompagnés.<br><span>Des résultats visibles.</span></h1>
+            <p class="hero-lead">Découvrez quelques réalisations, livraisons et retours reçus de nos clients.</p>
+            <ul class="trust-line" aria-label="Repères NOBILIS">
+                <li><strong>6 ans</strong><span>d'expérience</span></li>
+                <li><strong>400+</strong><span>travaux accompagnés</span></li>
+                <li><strong>500+</strong><span>étudiants suivis</span></li>
+            </ul>
+        </header>
 
-    <main>
-        <section class="project-trust-strip">
-            <div class="container">
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <i class="fa fa-user-check"></i>
-                        <span>Documents présentés avec accord préalable</span>
+        <section class="proof-section" aria-labelledby="livraisons-title">
+            <div class="page-width">
+                <header class="section-heading">
+                    <h2 id="livraisons-title">Des travaux réellement livrés</h2>
+                    <p>Quelques aperçus de travaux transmis à nos clients.</p>
+                </header>
+
+                <div class="carousel-shell">
+                    <button class="carousel-arrow carousel-arrow-prev" type="button" data-carousel-prev aria-label="Voir les livraisons précédentes">‹</button>
+                    <div class="proof-carousel" data-carousel tabindex="0" aria-label="Captures de travaux livrés">
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-01.webp" data-alt="Capture WhatsApp anonymisée montrant un document livré en Word et PDF" aria-label="Agrandir la première preuve de livraison" style="--focus-y:57%">
+                            <img src="img/preuves/livraison-01.webp" width="720" height="1404" alt="Capture WhatsApp anonymisée d'une livraison Word et PDF" fetchpriority="high" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-02.webp" data-alt="Capture WhatsApp anonymisée montrant la livraison d'une thèse en Word et PDF" aria-label="Agrandir la deuxième preuve de livraison" style="--focus-y:55%">
+                            <img src="img/preuves/livraison-02.webp" width="720" height="1404" alt="Capture WhatsApp anonymisée d'une livraison de thèse" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-04.webp" data-alt="Capture WhatsApp anonymisée montrant une version finale en Word et PDF" aria-label="Agrandir la troisième preuve de livraison" style="--focus-y:59%">
+                            <img data-src="img/preuves/livraison-04.webp" width="720" height="1640" alt="Capture WhatsApp anonymisée d'une version finale" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-05.webp" data-alt="Capture WhatsApp anonymisée montrant une livraison après réception d'un paiement" aria-label="Agrandir la quatrième preuve de livraison" style="--focus-y:57%">
+                            <img data-src="img/preuves/livraison-05.webp" width="720" height="1640" alt="Capture WhatsApp anonymisée d'une livraison confirmée" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-03.webp" data-alt="Capture WhatsApp anonymisée montrant une version finale en PDF et Word" aria-label="Agrandir la cinquième preuve de livraison" style="--focus-y:57%">
+                            <img data-src="img/preuves/livraison-03.webp" width="720" height="1343" alt="Capture WhatsApp anonymisée d'une version finale PDF et Word" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-06.webp" data-alt="Capture WhatsApp anonymisée montrant deux formats d'un chapitre de mémoire" aria-label="Agrandir la sixième preuve de livraison" style="--focus-y:48%">
+                            <img data-src="img/preuves/livraison-06.webp" width="720" height="1640" alt="Capture WhatsApp anonymisée d'un chapitre de mémoire" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-07.webp" data-alt="Capture WhatsApp anonymisée montrant des fichiers Word, PDF et PowerPoint" aria-label="Agrandir la septième preuve de livraison" style="--focus-y:52%">
+                            <img data-src="img/preuves/livraison-07.webp" width="720" height="1640" alt="Capture WhatsApp anonymisée d'une livraison multiformat" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/livraison-08.webp" data-alt="Capture WhatsApp anonymisée montrant la livraison d'un mémoire en PDF et Word" aria-label="Agrandir la huitième preuve de livraison" style="--focus-y:50%">
+                            <img data-src="img/preuves/livraison-08.webp" width="720" height="1640" alt="Capture WhatsApp anonymisée d'un mémoire livré" loading="lazy" decoding="async">
+                        </button>
                     </div>
-                    <div class="trust-item">
-                        <i class="fa fa-lock"></i>
-                        <span>Téléchargement retiré de l'interface</span>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fa fa-layer-group"></i>
-                        <span>Classement par catégorie vérifiable</span>
-                    </div>
+                    <button class="carousel-arrow carousel-arrow-next" type="button" data-carousel-next aria-label="Voir les livraisons suivantes">›</button>
                 </div>
             </div>
         </section>
 
-        <section class="container-xxl py-5" id="documents">
-            <div class="container">
-                <div class="project-section-head">
-                    <span class="section-title bg-white text-primary px-3">Travaux soutenus</span>
-                    <h2>Une sélection lisible, crédible et protégée.</h2>
-                    <p>
-                        Les documents affichés ci-dessous donnent un aperçu réel de notre méthode de travail.
-                        Ils sont proposés en lecture uniquement afin de préserver la confidentialité et la valeur
-                        du travail académique.
-                    </p>
-                </div>
+        <section class="proof-section proof-section-muted" aria-labelledby="retours-title">
+            <div class="page-width">
+                <header class="section-heading">
+                    <h2 id="retours-title">Ce que nos clients nous disent</h2>
+                    <p>Quelques retours reçus au cours de nos accompagnements.</p>
+                </header>
 
-                <div class="consent-alert" role="alert">
-                    <i class="fa fa-shield-alt"></i>
-                    <div>
-                        <strong>Note de confidentialité</strong>
-                        <span>
-                            Les documents consultables sont affichés uniquement lorsqu'une autorisation de
-                            présentation a été donnée. Toute reproduction, diffusion ou tentative de téléchargement
-                            non autorisée est interdite.
-                        </span>
+                <div class="carousel-shell">
+                    <button class="carousel-arrow carousel-arrow-prev" type="button" data-carousel-prev aria-label="Voir les retours précédents">‹</button>
+                    <div class="proof-carousel" data-carousel tabindex="0" aria-label="Captures de retours clients">
+                        <button class="proof-card" type="button" data-full="img/preuves/retour-client-01.webp" data-alt="Retour WhatsApp anonymisé d'un client satisfait de l'aperçu du travail" aria-label="Agrandir le premier retour client" style="--focus-y:54%">
+                            <img data-src="img/preuves/retour-client-01.webp" width="720" height="1399" alt="Retour WhatsApp anonymisé exprimant une satisfaction" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/retour-client-04.webp" data-alt="Retour WhatsApp anonymisé soulignant l'écoute de NOBILIS" aria-label="Agrandir le deuxième retour client" style="--focus-y:67%">
+                            <img data-src="img/preuves/retour-client-04.webp" width="720" height="1640" alt="Retour WhatsApp anonymisé sur l'écoute de NOBILIS" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/retour-client-02.webp" data-alt="Retour WhatsApp anonymisé donnant un avis constructif sur le service" aria-label="Agrandir le troisième retour client" style="--focus-y:58%">
+                            <img data-src="img/preuves/retour-client-02.webp" width="720" height="1399" alt="Retour WhatsApp anonymisé et constructif" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/retour-client-05.webp" data-alt="Retour WhatsApp anonymisé indiquant que l'accompagnement se passe bien" aria-label="Agrandir le quatrième retour client" style="--focus-y:59%">
+                            <img data-src="img/preuves/retour-client-05.webp" width="720" height="1640" alt="Retour WhatsApp anonymisé sur le déroulement de l'accompagnement" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/retour-client-03.webp" data-alt="Retour WhatsApp anonymisé sur la rédaction et les sources utilisées" aria-label="Agrandir le cinquième retour client" style="--focus-y:59%">
+                            <img data-src="img/preuves/retour-client-03.webp" width="720" height="1399" alt="Retour WhatsApp anonymisé sur la qualité de la rédaction" loading="lazy" decoding="async">
+                        </button>
+                        <button class="proof-card" type="button" data-full="img/preuves/retour-client-06.webp" data-alt="Retour WhatsApp anonymisé d'un client satisfait du service" aria-label="Agrandir le sixième retour client" style="--focus-y:57%">
+                            <img data-src="img/preuves/retour-client-06.webp" width="720" height="1114" alt="Retour WhatsApp anonymisé d'un client satisfait" loading="lazy" decoding="async">
+                        </button>
                     </div>
+                    <button class="carousel-arrow carousel-arrow-next" type="button" data-carousel-next aria-label="Voir les retours suivants">›</button>
                 </div>
 
-                <div class="project-filters" aria-label="Filtrer les documents">
-                    <button class="filter-btn active" type="button" data-filter="all">Tous</button>
-                    <button class="filter-btn" type="button" data-filter="memoire">Mémoires</button>
-                    <button class="filter-btn" type="button" data-filter="these">Thèse</button>
-                    <button class="filter-btn" type="button" data-filter="droit">Droit</button>
-                    <button class="filter-btn" type="button" data-filter="autre">Autres</button>
+                <p class="privacy-note">Les informations permettant d'identifier nos clients sont masquées afin de préserver leur confidentialité.</p>
+            </div>
+        </section>
+
+        <!-- Aucune capture Chariow vérifiable n'a été fournie avec les 14 captures WhatsApp. -->
+
+        <section class="works-section" id="travaux" aria-labelledby="travaux-title">
+            <div class="page-width">
+                <header class="section-heading">
+                    <h2 id="travaux-title">Quelques travaux accompagnés</h2>
+                    <p>Explorez une sélection de travaux dans différents domaines.</p>
+                    <p class="document-authorization-note" role="note">Cette galerie présente uniquement un échantillon parmi les centaines de travaux accompagnés par NOBILIS. Elle ne réunit ni tous les documents réalisés ni l’ensemble des domaines dans lesquels nous intervenons. Les documents visibles sont présentés avec l’autorisation préalable des clients concernés.</p>
+                </header>
+
+                <div class="filter-bar" role="group" aria-label="Filtrer les travaux">
+                    <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tous</button>
+                    <button class="filter-button" type="button" data-filter="memoire" aria-pressed="false">Mémoires</button>
+                    <button class="filter-button" type="button" data-filter="these" aria-pressed="false">Thèses</button>
+                    <button class="filter-button" type="button" data-filter="droit" aria-pressed="false">Droit</button>
+                    <button class="filter-button" type="button" data-filter="autre" aria-pressed="false">Autres</button>
                 </div>
 
-                <div class="row g-4" id="documentGrid"></div>
+                <div class="works-grid" id="document-grid">
+                    <article class="work-card" data-category="droit">
+                        <p class="work-meta"><span>Droit</span> Droit des affaires</p>
+                        <h3>Médiation dans les litiges commerciaux en droit OHADA</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Médiation dans les litiges commerciaux en droit OHADA" data-document="doc-01">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="memoire">
+                        <p class="work-meta"><span>Mémoire</span> Relations internationales</p>
+                        <h3>Gouvernance et sécurité internationale en Afrique centrale</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Gouvernance et sécurité internationale en Afrique centrale" data-document="doc-02">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="droit">
+                        <p class="work-meta"><span>Droit</span> Droit civil et contrats</p>
+                        <h3>Les limites à la liberté contractuelle</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Les limites à la liberté contractuelle" data-document="doc-03">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="autre">
+                        <p class="work-meta"><span>Autre</span> Sciences et contrôle qualité</p>
+                        <h3>Qualité des pastèques produites et commercialisées à Dalaba</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Qualité des pastèques produites et commercialisées à Dalaba" data-document="doc-04">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="these">
+                        <p class="work-meta"><span>Thèse</span> Diplomatie</p>
+                        <h3>Les ONG et leur rôle dans la diplomatie</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Les ONG et leur rôle dans la diplomatie" data-document="doc-05">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="memoire">
+                        <p class="work-meta"><span>Mémoire</span> Traduction et administration</p>
+                        <h3>Polyvalence en traduction dans les administrations</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Polyvalence en traduction dans les administrations" data-document="doc-06">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="memoire">
+                        <p class="work-meta"><span>Mémoire</span> Analyse économique</p>
+                        <h3>Économie numérique, innovation et croissance économique</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Économie numérique, innovation et croissance économique" data-document="doc-07">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="these">
+                        <p class="work-meta"><span>Thèse</span> Sciences de l'éducation</p>
+                        <h3>Thèse en orientation et éducation extrascolaire</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Thèse en orientation et éducation extrascolaire" data-document="doc-08">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="memoire">
+                        <p class="work-meta"><span>Mémoire</span> Recherche académique</p>
+                        <h3>Document académique finalisé</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Document académique finalisé" data-document="doc-09">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="autre">
+                        <p class="work-meta"><span>Autre</span> Gestion des risques</p>
+                        <h3>Risques liés au chargement et déchargement de la bauxite</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Risques liés au chargement et déchargement de la bauxite" data-document="doc-10">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="droit">
+                        <p class="work-meta"><span>Droit</span> Droit OHADA</p>
+                        <h3>L'apport partiel d'actif en droit des affaires</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="L'apport partiel d'actif en droit des affaires" data-document="doc-11">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="memoire">
+                        <p class="work-meta"><span>Mémoire</span> Politiques publiques</p>
+                        <h3>Évaluation des politiques publiques au Tchad</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Évaluation des politiques publiques au Tchad" data-document="doc-12">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="memoire">
+                        <p class="work-meta"><span>Mémoire</span> Didactique du français</p>
+                        <h3>Infractions liées à la conjugaison chez les apprenants</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Infractions liées à la conjugaison chez les apprenants" data-document="doc-13">Voir un extrait</button>
+                    </article>
+                    <article class="work-card" data-category="autre">
+                        <p class="work-meta"><span>Autre</span> Santé, sécurité et industrie</p>
+                        <h3>Santé et sécurité dans la réhabilitation industrielle</h3>
+                        <button class="work-link js-open-pdf" type="button" data-title="Santé et sécurité dans la réhabilitation industrielle" data-document="doc-14">Voir un extrait</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta" id="conversation">
+            <div class="page-width cta-inner">
+                <h2>Votre projet est toujours en cours&nbsp;?</h2>
+                <p>Revenez à notre conversation afin que nous puissions poursuivre l'étude de votre dossier.</p>
+                <form class="whatsapp-form" id="project-whatsapp-form">
+                    <div class="form-field">
+                        <label for="project-name">Nom complet</label>
+                        <input id="project-name" name="name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="project-email">Adresse email</label>
+                        <input id="project-email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="form-field form-field-wide">
+                        <label for="project-subject">Sujet du mémoire</label>
+                        <input id="project-subject" name="subject" type="text" required>
+                    </div>
+                    <div class="form-field form-field-wide">
+                        <label for="project-message">Niveau, avancement et délai</label>
+                        <textarea id="project-message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button class="cta-button form-field-wide" type="submit">Envoyer sur WhatsApp</button>
+                </form>
             </div>
         </section>
     </main>
 
-    <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalTitle" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-lg-down">
-            <div class="modal-content secure-reader">
-                <div class="modal-header">
-                    <div>
-                        <span class="reader-kicker">Lecture protégée</span>
-                        <h5 class="modal-title" id="pdfModalTitle">Document académique</h5>
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
-                </div>
-                <div class="reader-toolbar">
-                    <button type="button" class="reader-btn" id="scrollTopPage" aria-label="Revenir au début">
-                        <i class="fa fa-arrow-up"></i>
-                    </button>
-                    <span id="pageIndicator">Défilement continu</span>
-                    <button type="button" class="reader-btn" id="scrollBottomPage" aria-label="Descendre dans le document">
-                        <i class="fa fa-arrow-down"></i>
-                    </button>
-                    <div class="reader-zoom" aria-label="Ajuster le confort de lecture">
-                        <button type="button" class="reader-btn" id="zoomOutPdf" aria-label="Réduire le zoom">
-                            <i class="fa fa-search-minus"></i>
-                        </button>
-                        <span id="zoomIndicator">100%</span>
-                        <button type="button" class="reader-btn" id="zoomInPdf" aria-label="Agrandir le zoom">
-                            <i class="fa fa-search-plus"></i>
-                        </button>
-                    </div>
-                    <span class="reader-lock"><i class="fa fa-lock me-1"></i>Téléchargement désactivé</span>
-                </div>
-                <div class="modal-body">
-                    <div class="reader-notice">
-                        Lecture autorisée uniquement. Le clic droit, l'impression et les raccourcis de sauvegarde
-                        sont désactivés sur cette page.
-                    </div>
-                    <div class="pdf-stage" id="pdfStage">
-                        <div class="pdf-pages" id="pdfPages"></div>
-                        <div class="pdf-loading" id="pdfLoading">Chargement du document...</div>
-                    </div>
-                </div>
+    <footer class="site-footer">
+        <div class="page-width footer-inner">
+            <a class="footer-brand" href="index.html">NOBILIS</a>
+            <a href="confidentialite.html">Confidentialité</a>
+            <p>© 2026 NOBILIS</p>
+        </div>
+    </footer>
+
+    <dialog class="image-dialog" id="image-dialog" aria-label="Capture agrandie">
+        <button class="image-close" type="button" data-close-image aria-label="Fermer la capture">×</button>
+        <div class="image-dialog-body">
+            <img id="proof-large" alt="">
+        </div>
+    </dialog>
+
+    <dialog class="reader-dialog" id="pdf-dialog" aria-labelledby="reader-title">
+        <div class="reader-header">
+            <h2 id="reader-title">Document académique</h2>
+            <button class="reader-close" type="button" data-close-reader aria-label="Fermer le document">×</button>
+        </div>
+        <div class="reader-toolbar" aria-label="Navigation dans le document">
+            <span id="reader-page" aria-live="polite">Page — / —</span>
+        </div>
+        <div class="reader-body" id="reader-body">
+            <p class="reader-status" id="reader-status" role="status">Chargement du document…</p>
+            <div class="reader-pages" id="reader-pages" aria-label="Pages du document" hidden></div>
+            <div class="reader-fallback" id="reader-fallback" hidden>
+                <p id="reader-fallback-message">Ce document ne peut pas être affiché dans le lecteur.</p>
             </div>
         </div>
-    </div>
+        <p class="reader-note">Le PDF est chargé uniquement après votre clic.</p>
+    </dialog>
 
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <h4 class="text-white mb-3">Liens rapides</h4>
-                    <a class="btn btn-link" href="about.html">À propos</a>
-                    <a class="btn btn-link" href="services.html">Services</a>
-                    <a class="btn btn-link" href="method.html">Méthode</a>
-                    <a class="btn btn-link" href="contact.html">Contact</a>
-                    <a class="btn btn-link" href="confidentialite.html">Politique de confidentialité</a>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
-                    <p class="mb-2">
-                        <i class="fa fa-map-marker-alt me-3"></i>
-                        Abomey-Calavi, Bénin
-                    </p>
-                    <p class="mb-2">
-                        <i class="fa fa-envelope me-3"></i>
-                        deksimplice@gmail.com
-                    </p>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <h4 class="text-white mb-3">Ressources académiques</h4>
-                    <p>
-                        Recevez nos publications sur la méthodologie, la cohérence académique
-                        et les exigences universitaires.
-                    </p>
-                    <div class="position-relative mx-auto" style="max-width: 400px;">
-                        <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="email" placeholder="Votre email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
-                            S'inscrire
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Nobilis</a>, Tous droits réservés.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="index.html">Accueil</a>
-                            <a href="confidentialite.html">Mentions légales</a>
-                            <a href="confidentialite.html">Confidentialité</a>
-                            <a href="contact.html">Aide</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/vendor/pdf.min.js"></script>
-    <script src="js/main.js"></script>
-
-    <script>
-        const projectDocuments = [
-            { title: "Médiation dans les litiges commerciaux en droit OHADA", level: "droit", levelLabel: "Droit", file: "pdf/A-14 version finale.pdf", domain: "Droit des affaires", review: "Retour client : structure plus claire et argumentation mieux défendable." },
-            { title: "Gouvernance et sécurité internationale en Afrique centrale", level: "memoire", levelLabel: "Mémoire", file: "pdf/Aaron@ version finale.pdf", domain: "Relations internationales", review: "Retour client : plan réorganisé et enchaînement des chapitres plus fluide." },
-            { title: "Les limites à la liberté contractuelle", level: "droit", levelLabel: "Droit", file: "pdf/Adama Diaby Version finale.pdf", domain: "Droit civil et contrats", review: "Retour client : problématique clarifiée et références mieux exploitées." },
-            { title: "Qualité des pastèques produites et commercialisées à Dalaba", level: "autre", levelLabel: "Autre", file: "pdf/Alseny Diallo Version finale.pdf", domain: "Sciences et contrôle qualité", review: "Retour client : présentation des résultats rendue plus lisible." },
-            { title: "Les ONG et leur rôle dans la diplomatie", level: "these", levelLabel: "Thèse", file: "pdf/Amicizia Ong version finale.pdf", domain: "Diplomatie et relations internationales", review: "Retour client : cadre théorique mieux structuré et lecture plus professionnelle." },
-            { title: "Polyvalence en traduction dans les administrations", level: "memoire", levelLabel: "Mémoire", file: "pdf/Ben version finale.pdf", domain: "Traduction et administration", review: "Retour client : document final plus cohérent avant dépôt." },
-            { title: "Économie numérique, innovation et croissance économique", level: "memoire", levelLabel: "Mémoire", file: "pdf/DIABY ANALYSTE ECONOMIQUE version finale.pdf", domain: "Analyse économique", review: "Retour client : analyse mieux hiérarchisée et tableaux mieux présentés." },
-            { title: "Thèse en orientation et éducation extrascolaire", level: "these", levelLabel: "Thèse", file: "pdf/these_Denise-version finale.pdf", domain: "Sciences de l'éducation", review: "Retour client : progression scientifique plus nette entre les parties." },
-            { title: "Document académique finalisé", level: "memoire", levelLabel: "Mémoire", file: "pdf/King version finale.pdf", domain: "Recherche académique", review: "Retour client : mise en forme et cohérence générale renforcées." },
-            { title: "Risques liés au chargement et déchargement de la bauxite", level: "autre", levelLabel: "Autre", file: "pdf/Leno version finale.pdf", domain: "Gestion des risques", review: "Retour client : résultats mieux expliqués et recommandations plus nettes." },
-            { title: "L'apport partiel d'actif en droit des affaires", level: "droit", levelLabel: "Droit", file: "pdf/Richard version finale.pdf", domain: "Droit OHADA", review: "Retour client : raisonnement juridique rendu plus lisible." },
-            { title: "Évaluation des politiques publiques au Tchad", level: "memoire", levelLabel: "Mémoire", file: "pdf/Ronel-Gladys(Mémoire) version finale.pdf", domain: "Politiques publiques", review: "Retour client : méthodologie clarifiée et analyse mieux reliée aux objectifs." },
-            { title: "Infractions liées à la conjugaison chez les apprenants", level: "memoire", levelLabel: "Mémoire", file: "pdf/Saïd El Khoudri(Doc 2) version finale.pdf", domain: "Didactique et langue française", review: "Retour client : rédaction allégée et présentation plus académique." },
-            { title: "Santé et sécurité dans la réhabilitation industrielle", level: "autre", levelLabel: "Autre", file: "pdf/Zoumanigui Maurice Massa version finale.pdf", domain: "Santé, sécurité et industrie", review: "Retour client : document plus ordonné et lecture finale facilitée." }
-        ];
-
-        let pdfDocument = null;
-        let currentPage = 1;
-        let activeTitle = "";
-        let pageObserver = null;
-        let renderQueue = Promise.resolve();
-        let pdfZoom = 1;
-
-        if (window.pdfjsLib) {
-            pdfjsLib.GlobalWorkerOptions.workerSrc = "js/vendor/pdf.worker.min.js";
-        }
-
-        function renderDocumentCards(filter = "all") {
-            const grid = document.getElementById("documentGrid");
-            const items = projectDocuments.filter((item) => filter === "all" || item.level === filter);
-            grid.innerHTML = items.map((item, index) => `
-                <div class="col-xl-4 col-md-6">
-                    <article class="project-doc-card h-100" style="--delay: ${index * 40}ms">
-                        <div class="doc-card-top">
-                            <span class="doc-level ${item.level}">${item.levelLabel}</span>
-                            <span class="doc-status"><i class="fa fa-check-circle"></i>Soutenu</span>
-                        </div>
-                        <h3>${item.title}</h3>
-                        <p>${item.domain}</p>
-                        <div class="doc-review">
-                            <i class="fa fa-quote-left"></i>
-                            <span>${item.review}</span>
-                        </div>
-                        <div class="doc-meta">
-                            <span><i class="fa fa-file-pdf"></i>PDF</span>
-                            <span><i class="fa fa-eye"></i>Lecture seule</span>
-                        </div>
-                        <button type="button" class="btn btn-primary w-100" onclick="openSecurePdf('${item.file}', '${item.title.replace(/'/g, "\\'")}')">
-                            <i class="fa fa-book-reader me-2"></i>Lire le document
-                        </button>
-                    </article>
-                </div>
-            `).join("");
-        }
-
-        async function openSecurePdf(pdfPath, title) {
-            activeTitle = title;
-            currentPage = 1;
-            pdfZoom = 1;
-            updateZoomIndicator();
-            clearFallbackViewer();
-            document.getElementById("pdfModalTitle").textContent = title;
-            document.getElementById("pdfLoading").style.display = "flex";
-            document.getElementById("pdfLoading").textContent = "Chargement du document...";
-            resetPdfPages();
-
-            const modal = new bootstrap.Modal(document.getElementById("pdfModal"));
-            modal.show();
-
-            try {
-                if (window.location.protocol === "file:") {
-                    throw new Error("Lecture locale directe détectée.");
-                }
-
-                pdfDocument = await pdfjsLib.getDocument({
-                    url: encodeURI(pdfPath)
-                }).promise;
-                await renderPdfDocument();
-            } catch (error) {
-                showFallbackViewer(pdfPath);
-            }
-        }
-
-        function clearFallbackViewer() {
-            const existingFrame = document.getElementById("pdfFallbackFrame");
-            if (existingFrame) existingFrame.remove();
-        }
-
-        function resetPdfPages() {
-            if (pageObserver) {
-                pageObserver.disconnect();
-                pageObserver = null;
-            }
-            renderQueue = Promise.resolve();
-            document.getElementById("pdfPages").innerHTML = "";
-        }
-
-        function showFallbackViewer(pdfPath) {
-            const stage = document.getElementById("pdfStage");
-            const loading = document.getElementById("pdfLoading");
-            const pages = document.getElementById("pdfPages");
-            const frame = document.createElement("iframe");
-
-            pages.innerHTML = "";
-            loading.style.display = "none";
-            document.getElementById("pageIndicator").textContent = "Aperçu local";
-            document.getElementById("scrollTopPage").disabled = true;
-            document.getElementById("scrollBottomPage").disabled = true;
-            document.getElementById("zoomOutPdf").disabled = true;
-            document.getElementById("zoomInPdf").disabled = true;
-
-            frame.id = "pdfFallbackFrame";
-            frame.className = "pdf-fallback-frame";
-            frame.title = "Aperçu protégé du document";
-            frame.src = `${new URL(pdfPath, window.location.href).href}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`;
-            stage.appendChild(frame);
-        }
-
-        async function renderPdfDocument() {
-            if (!pdfDocument) return;
-
-            const stage = document.getElementById("pdfStage");
-            const pages = document.getElementById("pdfPages");
-            const firstPage = await pdfDocument.getPage(1);
-            const baseViewport = firstPage.getViewport({ scale: 1 });
-            const availableWidth = Math.max(280, stage.clientWidth - 40);
-            const fitScale = availableWidth / baseViewport.width;
-            const scale = Math.min(2.25, fitScale * pdfZoom);
-            const estimatedHeight = Math.round(baseViewport.height * scale);
-
-            pages.innerHTML = "";
-            document.getElementById("pageIndicator").textContent = `Défilement continu • ${pdfDocument.numPages} pages`;
-            document.getElementById("scrollTopPage").disabled = false;
-            document.getElementById("scrollBottomPage").disabled = false;
-            document.getElementById("zoomOutPdf").disabled = pdfZoom <= 0.9;
-            document.getElementById("zoomInPdf").disabled = pdfZoom >= 1.45;
-
-            for (let pageNumber = 1; pageNumber <= pdfDocument.numPages; pageNumber += 1) {
-                const shell = document.createElement("div");
-                shell.className = "pdf-page-shell";
-                shell.dataset.pageNumber = pageNumber;
-                shell.style.minHeight = `${estimatedHeight}px`;
-                shell.innerHTML = `<div class="pdf-page-label">Page ${pageNumber}</div><canvas></canvas>`;
-                pages.appendChild(shell);
-            }
-
-            pageObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        const shell = entry.target;
-                        pageObserver.unobserve(shell);
-                        renderQueue = renderQueue.then(() => renderPdfPageShell(shell, scale));
-                    }
-                });
-            }, { root: stage, rootMargin: "360px 0px" });
-
-            pages.querySelectorAll(".pdf-page-shell").forEach((shell) => pageObserver.observe(shell));
-            document.getElementById("pdfLoading").style.display = "none";
-            await renderPdfPageShell(pages.querySelector(".pdf-page-shell"), scale);
-        }
-
-        async function renderPdfPageShell(shell, scale) {
-            if (!pdfDocument || !shell || shell.dataset.rendered === "true") return;
-
-            shell.dataset.rendered = "true";
-            const pageNumber = Number(shell.dataset.pageNumber);
-            const page = await pdfDocument.getPage(pageNumber);
-            const canvas = shell.querySelector("canvas");
-            const context = canvas.getContext("2d");
-            const viewport = page.getViewport({ scale });
-            const outputScale = Math.min(2.4, Math.max(1.5, window.devicePixelRatio || 1));
-
-            canvas.width = Math.floor(viewport.width * outputScale);
-            canvas.height = Math.floor(viewport.height * outputScale);
-            canvas.style.width = `${viewport.width}px`;
-            canvas.style.height = `${viewport.height}px`;
-            context.setTransform(outputScale, 0, 0, outputScale, 0, 0);
-
-            await page.render({ canvasContext: context, viewport }).promise;
-            context.save();
-            context.globalAlpha = 0.12;
-            context.fillStyle = "#0f172a";
-            context.font = "700 28px Nunito, sans-serif";
-            context.rotate(-0.42);
-            for (let y = 160; y < viewport.height + 220; y += 180) {
-                for (let x = -viewport.width; x < viewport.width + 240; x += 460) {
-                    context.fillText("Nobilis - lecture autorisée", x, y);
-                }
-            }
-            context.restore();
-            shell.style.minHeight = "";
-        }
-
-        function updateZoomIndicator() {
-            document.getElementById("zoomIndicator").textContent = `${Math.round(pdfZoom * 100)}%`;
-        }
-
-        function changePdfZoom(delta) {
-            if (!pdfDocument) return;
-            pdfZoom = Math.min(1.45, Math.max(0.9, Number((pdfZoom + delta).toFixed(2))));
-            updateZoomIndicator();
-            renderPdfDocument();
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            renderDocumentCards();
-
-            document.querySelectorAll(".filter-btn").forEach((button) => {
-                button.addEventListener("click", function () {
-                    document.querySelectorAll(".filter-btn").forEach((item) => item.classList.remove("active"));
-                    this.classList.add("active");
-                    renderDocumentCards(this.dataset.filter);
-                });
-            });
-
-            document.getElementById("scrollTopPage").addEventListener("click", function () {
-                document.getElementById("pdfStage").scrollTo({ top: 0, behavior: "smooth" });
-            });
-
-            document.getElementById("scrollBottomPage").addEventListener("click", function () {
-                const stage = document.getElementById("pdfStage");
-                stage.scrollBy({ top: stage.clientHeight * 0.85, behavior: "smooth" });
-            });
-
-            document.getElementById("zoomOutPdf").addEventListener("click", function () {
-                changePdfZoom(-0.15);
-            });
-
-            document.getElementById("zoomInPdf").addEventListener("click", function () {
-                changePdfZoom(0.15);
-            });
-
-            document.getElementById("pdfModal").addEventListener("hidden.bs.modal", function () {
-                pdfDocument = null;
-                activeTitle = "";
-                clearFallbackViewer();
-                resetPdfPages();
-            });
-
-            document.addEventListener("contextmenu", function (event) {
-                if (event.target.closest(".secure-reader") || event.target.closest(".project-doc-card")) {
-                    event.preventDefault();
-                }
-            });
-
-            document.addEventListener("keydown", function (event) {
-                const key = event.key.toLowerCase();
-                if ((event.ctrlKey || event.metaKey) && ["s", "p", "u"].includes(key)) {
-                    event.preventDefault();
-                }
-            });
-
-            window.addEventListener("resize", function () {
-                if (pdfDocument && activeTitle) {
-                    renderPdfDocument();
-                }
-            });
-        });
-    </script>
+    <script src="js/projet.js" defer></script>
 </body>
-
 </html>
